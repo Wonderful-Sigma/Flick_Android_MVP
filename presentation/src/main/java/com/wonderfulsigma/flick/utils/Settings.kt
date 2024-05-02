@@ -9,10 +9,10 @@ import androidx.navigation.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wonderfulsigma.flick.R
 
-fun setDeleteBottomNav(activity: FragmentActivity?) {
-    val bottomNavigationBar = activity?.findViewById<BottomNavigationView>(R.id.bnv)
-    bottomNavigationBar?.visibility = View.GONE
-}
+//fun setDeleteBottomNav(activity: FragmentActivity?) {
+//    val bottomNavigationBar = activity?.findViewById<BottomNavigationView>(R.id.bnv)
+//    bottomNavigationBar?.visibility = View.GONE
+//}
 
 fun androidx.appcompat.widget.Toolbar.setPopBackStack() {
     this.setNavigationOnClickListener {

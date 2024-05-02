@@ -13,7 +13,7 @@ import com.wonderfulsigma.flick.feature.send.recyclerview.recent.RecentAccount
 import com.wonderfulsigma.flick.feature.send.recyclerview.recent.RecentAccountAdapter
 import com.wonderfulsigma.flick.feature.send.viewmodel.SendViewModel
 import com.wonderfulsigma.flick.feature.user.viewmodel.UserViewModel
-import com.wonderfulsigma.flick.utils.setDeleteBottomNav
+//import com.wonderfulsigma.flick.utils.setDeleteBottomNav
 import com.wonderfulsigma.flick.utils.setPopBackStack
 import com.wonderfulsigma.flick.utils.setStatusBarColorWhite
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,7 +29,7 @@ class SendWhereFragment : BaseFragment<FragmentSendWhereBinding, SendViewModel>(
     private var recentAccountList: MutableList<RecentAccount> = mutableListOf()
 
     override fun start() {
-        setDeleteBottomNav(activity)
+//        setDeleteBottomNav(activity)
         binding.toolbar.setPopBackStack()
         setStatusBarColorWhite(requireActivity(), requireContext())
 

@@ -11,7 +11,7 @@ import com.wonderfulsigma.flick.base.BaseFragment
 import com.wonderfulsigma.flick.databinding.FragmentSendLoadBinding
 import com.wonderfulsigma.flick.feature.send.viewmodel.SendViewModel
 import com.wonderfulsigma.flick.main.toDecimalFormat
-import com.wonderfulsigma.flick.utils.setDeleteBottomNav
+//import com.wonderfulsigma.flick.utils.setDeleteBottomNav
 
 class SendLoadFragment :
     BaseFragment<FragmentSendLoadBinding, SendViewModel>(R.layout.fragment_send_load) {
@@ -19,7 +19,7 @@ class SendLoadFragment :
     override val viewModel: SendViewModel by activityViewModels()
 
     override fun start() {
-        setDeleteBottomNav(activity)
+//        setDeleteBottomNav(activity)
 
         val accountName = viewModel.depositAccountName.value
         val sendCoin = viewModel.sendCoin.value.toString()

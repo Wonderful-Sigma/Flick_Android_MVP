@@ -16,7 +16,7 @@ import com.wonderfulsigma.flick.feature.send.viewmodel.SendViewModel
 import com.wonderfulsigma.flick.feature.user.viewmodel.UserViewModel
 import com.wonderfulsigma.flick.main.toDecimalFormat
 import com.wonderfulsigma.flick.utils.fadeIn
-import com.wonderfulsigma.flick.utils.setDeleteBottomNav
+//import com.wonderfulsigma.flick.utils.setDeleteBottomNav
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -32,7 +32,7 @@ class SendFinishFragment :
 
     override fun start() {
         Log.d("SendFinishFragment", "start")
-        setDeleteBottomNav(activity)
+//        setDeleteBottomNav(activity)
         context = requireContext()
 
         val accountName = viewModel.depositAccountName.value

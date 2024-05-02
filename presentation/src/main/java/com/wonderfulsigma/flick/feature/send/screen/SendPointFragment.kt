@@ -13,7 +13,7 @@ import com.wonderfulsigma.flick.databinding.FragmentSendPointBinding
 import com.wonderfulsigma.flick.feature.send.viewmodel.SendViewModel
 import com.wonderfulsigma.flick.feature.user.viewmodel.UserViewModel
 import com.wonderfulsigma.flick.main.toDecimalFormat
-import com.wonderfulsigma.flick.utils.setDeleteBottomNav
+//import com.wonderfulsigma.flick.utils.setDeleteBottomNav
 import com.wonderfulsigma.flick.utils.setPopBackStack
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -31,7 +31,7 @@ class SendPointFragment :
     private var myLeftCoin by Delegates.notNull<Long>()
 
     override fun start() {
-        setDeleteBottomNav(activity)
+//        setDeleteBottomNav(activity)
         binding.toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }

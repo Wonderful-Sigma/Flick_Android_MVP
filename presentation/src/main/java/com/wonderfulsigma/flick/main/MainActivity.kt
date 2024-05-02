@@ -54,9 +54,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
 
         navController = navHostFragment.findNavController()
 
-        binding.bnv.setupWithNavController(navController)
-
-        setBottomNavigation()
+//        binding.bnv.setupWithNavController(navController)
+//        setBottomNavigation()
 
         userViewModel.myInfo.observe(this) {
             setQRCode()
@@ -121,42 +120,42 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
         val bottomSheetDialog = BottomSheetDialog(this)
         bottomSheetDialog.setContentView(qrCodeClass.bottomSheetView)
 
-        binding.bnv.menu.findItem(R.id.paymentFragment).setOnMenuItemClickListener {
-            qrCodeClass.setQRCode()
-            bottomSheetDialog.show()
-            qrCodeClass.generateQRCode()
-            return@setOnMenuItemClickListener false
-        }
+//        binding.bnv.menu.findItem(R.id.paymentFragment).setOnMenuItemClickListener {
+//            qrCodeClass.setQRCode()
+//            bottomSheetDialog.show()
+//            qrCodeClass.generateQRCode()
+//            return@setOnMenuItemClickListener false
+//        }
     }
 
-    private fun setBottomNavigation() {
-        /** Bottom Navigation */
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            /** Background Color & Status Bar Color */
-            if (destination.id == R.id.homeFragment) {
-                binding.root.setBackgroundColor(resources.getColor(R.color.activity_background))
-                setStatusBarColorBackground(this, this)
-            } else {
-                binding.root.setBackgroundColor(Color.WHITE)
-                setStatusBarColorWhite(this, this)
-            }
-
-            if (destination.id == R.id.settingFragment) {
-                window.navigationBarColor = ContextCompat.getColor(applicationContext, R.color.activity_background)
-            } else {
-                window.navigationBarColor = Color.WHITE
-            }
-
-            /** Bottom Nav */
-            if (destination.id == R.id.homeFragment || destination.id == R.id.allFragment || destination.id == R.id.stockFragment ||
-                destination.id == R.id.paymentFragment || destination.id == R.id.eventFragment || destination.id == R.id.homeLoadingFragment
-            ) {
-                binding.bnv.visibility = View.VISIBLE
-            } else {
-                binding.bnv.visibility = View.GONE
-            }
-        }
-    }
+//    private fun setBottomNavigation() {
+//        /** Bottom Navigation */
+//        navController.addOnDestinationChangedListener { _, destination, _ ->
+//            /** Background Color & Status Bar Color */
+//            if (destination.id == R.id.homeFragment) {
+//                binding.root.setBackgroundColor(resources.getColor(R.color.activity_background))
+//                setStatusBarColorBackground(this, this)
+//            } else {
+//                binding.root.setBackgroundColor(Color.WHITE)
+//                setStatusBarColorWhite(this, this)
+//            }
+//
+//            if (destination.id == R.id.settingFragment) {
+//                window.navigationBarColor = ContextCompat.getColor(applicationContext, R.color.activity_background)
+//            } else {
+//                window.navigationBarColor = Color.WHITE
+//            }
+//
+//            /** Bottom Nav */
+//            if (destination.id == R.id.homeFragment || destination.id == R.id.allFragment || destination.id == R.id.stockFragment ||
+//                destination.id == R.id.paymentFragment || destination.id == R.id.eventFragment || destination.id == R.id.homeLoadingFragment
+//            ) {
+//                binding.bnv.visibility = View.VISIBLE
+//            } else {
+//                binding.bnv.visibility = View.GONE
+//            }
+//        }
+//    }
 
     companion object {
         private const val TAG = "MainActivity"

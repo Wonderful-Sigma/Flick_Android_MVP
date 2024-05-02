@@ -10,7 +10,7 @@ import com.wonderfulsigma.flick.base.BaseFragment
 import com.wonderfulsigma.flick.databinding.FragmentSendWhereInputBinding
 import com.wonderfulsigma.flick.feature.send.state.AccountNumberState
 import com.wonderfulsigma.flick.feature.send.viewmodel.SendViewModel
-import com.wonderfulsigma.flick.utils.setDeleteBottomNav
+//import com.wonderfulsigma.flick.utils.setDeleteBottomNav
 import com.wonderfulsigma.flick.utils.setPopBackStack
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -25,7 +25,7 @@ class SendWhereInputFragment : BaseFragment<FragmentSendWhereInputBinding, SendV
     private lateinit var etNumber: String
 
     override fun start() {
-        setDeleteBottomNav(activity)
+//        setDeleteBottomNav(activity)
         binding.toolbar.setPopBackStack()
 
         val context = requireContext() //5637-4925-5126-8
