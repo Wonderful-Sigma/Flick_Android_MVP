@@ -1,9 +1,15 @@
 package com.wonderfulsigma.flick.feature.send.screen
 
+//import com.wonderfulsigma.flick.utils.setDeleteBottomNav
+
 import android.content.Context
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView.OnEditorActionListener
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wonderfulsigma.flick.R
@@ -13,10 +19,11 @@ import com.wonderfulsigma.flick.feature.send.recyclerview.recent.RecentAccount
 import com.wonderfulsigma.flick.feature.send.recyclerview.recent.RecentAccountAdapter
 import com.wonderfulsigma.flick.feature.send.viewmodel.SendViewModel
 import com.wonderfulsigma.flick.feature.user.viewmodel.UserViewModel
-//import com.wonderfulsigma.flick.utils.setDeleteBottomNav
 import com.wonderfulsigma.flick.utils.setPopBackStack
 import com.wonderfulsigma.flick.utils.setStatusBarColorWhite
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+
 
 @AndroidEntryPoint
 class SendWhereFragment : BaseFragment<FragmentSendWhereBinding, SendViewModel>(R.layout.fragment_send_where), RecentAccountAdapter.OnRecentAccountItemClickListener {
@@ -27,6 +34,8 @@ class SendWhereFragment : BaseFragment<FragmentSendWhereBinding, SendViewModel>(
     private lateinit var context: Context
 
     private var recentAccountList: MutableList<RecentAccount> = mutableListOf()
+
+    private lateinit var etNumber: String
 
     override fun start() {
 //        setDeleteBottomNav(activity)
@@ -40,8 +49,36 @@ class SendWhereFragment : BaseFragment<FragmentSendWhereBinding, SendViewModel>(
         getRecentAccount()
 
         with(binding){
-            etInputAccount.setOnClickListener { findNavController().navigate(R.id.action_sendWhereFragment_to_sendWhereInputFragment) }
+//            etInputAccount.setOnClickListener { findNavController().navigate(R.id.action_sendWhereFragment_to_sendWhereInputFragment) }
             toolbar.setNavigationOnClickListener { findNavController().popBackStack() }
+        }
+
+        handlingKeyboardOk()
+
+        lifecycleScope.launch {
+            viewModel.accountCheckState.collect {
+                if (it.isSuccess) {
+                    viewModel.setDepositAccountNumber(etNumber)
+                    findNavController().navigate(SendWhereFragmentDirections.toSendPointFragment())
+                }
+                if (it.error.isNotEmpty()) {
+                    Toast.makeText(context, "계좌번호를 찾지 못했어요", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    private fun handlingKeyboardOk() {
+        binding.etInputAccount.setOnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                etNumber = binding.etInputAccount.text.toString()
+                if (etNumber.isNotEmpty()) {
+                    viewModel.checkAccount(etNumber)
+                } else {
+                    Toast.makeText(requireContext(), "빈칸을 채워주세요", Toast.LENGTH_SHORT).show()
+                }
+            }
+            false
         }
     }
 
