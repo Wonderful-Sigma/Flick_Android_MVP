@@ -1,5 +1,7 @@
 package com.wonderfulsigma.flick.di.module
 
+import com.b1nd.dauth.DAuth
+import com.b1nd.dauth.client.DAuthBuilder
 import com.google.gson.GsonBuilder
 import com.sigma.data.network.api.AccountApi
 import com.sigma.data.network.api.DauthApi
@@ -8,8 +10,11 @@ import com.sigma.data.network.api.SpendListApi
 import com.sigma.data.network.api.UserApi
 import com.wonderfulsigma.flick.di.authenticator.AuthAuthenticator
 import com.wonderfulsigma.flick.utils.BASE_URL
+import com.wonderfulsigma.flick.utils.CLIENT_ID
+import com.wonderfulsigma.flick.utils.CLIENT_SECRET
 import com.wonderfulsigma.flick.utils.DAUTH_BASE_URL
 import com.wonderfulsigma.flick.utils.HiltApplication
+import com.wonderfulsigma.flick.utils.REDIRECT_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,7 +30,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
-
 
     @Provides
     @Singleton
@@ -51,7 +55,6 @@ class NetworkModule {
     @Singleton
     fun provideQRCodeApi(@BasicRetrofit retrofit: Retrofit): QRCodeApi =
         retrofit.create(QRCodeApi::class.java)
-
 
     /* Retrofit Object 생성 */
 
@@ -103,6 +106,15 @@ class NetworkModule {
     @Singleton
     fun provideAuthAuthenticator(): AuthAuthenticator =
         AuthAuthenticator()
+
+    @Provides
+    @Singleton
+    fun provideDAuth(): DAuth =
+        DAuthBuilder.create()
+            .clientId(CLIENT_ID)
+            .clientSecret(CLIENT_SECRET)
+            .redirectUrl(REDIRECT_URL)
+            .build()
 
     @Provides
     @Singleton

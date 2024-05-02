@@ -1,8 +1,5 @@
 package com.sigma.data.network.dto.dauth
 
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
-
 
 data class DauthLoginRequest(
     val id: String,

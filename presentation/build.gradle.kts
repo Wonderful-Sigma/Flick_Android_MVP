@@ -16,8 +16,8 @@ android {
         applicationId = "com.wonderfulsigma.flick"
         minSdk = 26
         targetSdk = 34
-        versionCode = 9
-        versionName = "0.2.5"
+        versionCode = 10
+        versionName = "0.3.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,6 +26,12 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+
+    packaging {
+        resources {
+            excludes += "META-INF/DEPENDENCIES"
         }
     }
     compileOptions {
@@ -70,7 +76,7 @@ dependencies {
     implementation("com.github.yuriy-budiyev:code-scanner:2.3.2")
 
     // Dauth
-    implementation ("com.github.Team-B1ND:dauth-android:1.0.5")
+    implementation("com.github.Team-B1ND:DAuth-SDK:2.0.0")
 
     // Hilt
     implementation("com.google.dagger:hilt-android:2.48")
