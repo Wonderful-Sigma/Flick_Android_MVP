@@ -90,6 +90,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
             bottomSheetDialog.show()
             qrCodeClass.generateQRCode()
         }
+
+        binding.fabPayment.setOnClickListener {
+            qrCodeClass.setQRCode()
+            bottomSheetDialog.show()
+            qrCodeClass.generateQRCode()
+        }
     }
 
     companion object {
