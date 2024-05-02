@@ -10,10 +10,8 @@ import com.wonderfulsigma.flick.R
 import com.wonderfulsigma.flick.base.BaseFragment
 import com.wonderfulsigma.flick.databinding.FragmentLoginBinding
 import com.wonderfulsigma.flick.feature.start.StartViewModel
-import com.wonderfulsigma.flick.feature.start.state.LoginState
 import com.wonderfulsigma.flick.utils.setPopBackStack
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.math.BigInteger
 import java.security.MessageDigest
@@ -37,7 +35,7 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, StartViewModel>(R.layout
                 Toast.makeText(requireContext(), "빈칸을 채워주세요", Toast.LENGTH_SHORT).show()
             } else {
                 viewModel.dauthLogin(
-                    DauthLoginRequest(id, pw.toHash())
+                    DauthLoginRequest(id, pw)
                 )
             }
         }
