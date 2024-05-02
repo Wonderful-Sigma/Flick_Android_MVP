@@ -24,6 +24,8 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, StartViewModel>(R.layout
     override val viewModel: StartViewModel by viewModels()
 
     override fun start() {
+//        findNavController().navigate(LoginFragmentDirections.toHomeFragment())
+
         binding.toolbar.setPopBackStack()
 
         var id: String
@@ -56,7 +58,7 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, StartViewModel>(R.layout
         lifecycleScope.launch {
             viewModel.loginState.collect {
                 if (it.isSuccess) {
-                    findNavController().navigate(LoginFragmentDirections.toHomeFragment())
+//                    findNavController().navigate(LoginFragmentDirections.toHomeFragment())
                 }
                 if (it.error.isNotEmpty()) {
                     loginStateHandling(it.error)

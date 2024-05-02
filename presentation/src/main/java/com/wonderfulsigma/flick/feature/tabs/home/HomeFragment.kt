@@ -30,9 +30,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
     private lateinit var context: Context
 
     override fun start() {
-        val transaction: FragmentTransaction = childFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, HomeLoadingFragment())
-        transaction.commit()
+//        val action = HomeFragmentDirections.toHomeLoadingFragment()
+//        findNavController().navigate(action)
 
         context = requireContext()
         setStatusBarColorBackground(requireActivity(), context)
