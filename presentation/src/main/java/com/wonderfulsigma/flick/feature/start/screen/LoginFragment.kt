@@ -56,7 +56,7 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, StartViewModel>(R.layout
         lifecycleScope.launch {
             viewModel.loginState.collect {
                 if (it.isSuccess) {
-//                    findNavController().navigate(LoginFragmentDirections.toHomeFragment())
+                    findNavController().navigate(LoginFragmentDirections.toHomeFragment())
                 }
                 if (it.error.isNotEmpty()) {
                     loginStateHandling(it.error)
