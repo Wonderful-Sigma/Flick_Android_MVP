@@ -22,6 +22,8 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, StartViewModel>(R.layout
     override val viewModel: StartViewModel by viewModels()
 
     override fun start() {
+//        findNavController().navigate(LoginFragmentDirections.toHomeFragment())
+
         binding.toolbar.setPopBackStack()
 
         var id: String
@@ -54,10 +56,10 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, StartViewModel>(R.layout
         lifecycleScope.launch {
             viewModel.loginState.collect {
                 if (it.isSuccess) {
-                    findNavController().navigate(LoginFragmentDirections.toHomeFragment())
+//                    findNavController().navigate(LoginFragmentDirections.toHomeFragment())
                 }
                 if (it.error.isNotEmpty()) {
-                    Toast.makeText(requireContext(), "와이파이가 켜져있는지 확인해주세요", Toast.LENGTH_SHORT).show()
+                    loginStateHandling(it.error)
                 }
             }
         }
@@ -69,4 +71,17 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, StartViewModel>(R.layout
         return String.format("%0128x", BigInteger(1, md.digest()))
     }
 
+    private fun loginStateHandling(errorMessage: String) {
+        when(errorMessage) {
+            "HTTP 500 " -> {
+                Toast.makeText(requireContext(), "서버 에러가 일어났어요", Toast.LENGTH_SHORT).show()
+            }
+            else -> {
+                Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
 }
+
+

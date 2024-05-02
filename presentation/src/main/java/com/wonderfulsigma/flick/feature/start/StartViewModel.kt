@@ -61,7 +61,7 @@ class StartViewModel @Inject constructor(
             HiltApplication.prefs.refreshToken = it.refreshToken
         }.onFailure { e ->
             Log.d(TAG, "LoginFailed.. $e")
-            _loginState.emit(LoginState(error = "$e"))
+            _loginState.emit(LoginState(error = "${e.message}"))
         }
     }
 

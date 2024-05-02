@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2F4F6"
+        tools:context=".feature.tabs.home.HomeFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/home"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView"
+                android:layout_width="104dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/ic_app"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/toolbar" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/alarm_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/button_ripple_gray_oval"
+                android:src="@drawable/ic_alarm"
+                app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/toolbar" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/home"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/payment_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="0dp"
+                        android:background="@drawable/button_ripple_white"
+                        android:backgroundTint="@color/white"
+                        android:paddingHorizontal="25dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/pretendard_bold"
+                            android:text="결제하기"
+                            android:textColor="@color/light_black"
+                            android:textSize="22sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="8dp"
+                            android:layout_height="17dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_arrow_mini"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Account -->
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/bankbook_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="66dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/button_ripple_white_top_radius"
+                        android:paddingHorizontal="25dp"
+                        android:paddingTop="22dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/payment_button">
+
+                        <TextView
+                            android:id="@+id/bankbook_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/pretendard_bold"
+                            android:text="계좌"
+                            android:textColor="@color/light_black"
+                            android:textSize="22sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="8dp"
+                            android:layout_height="17dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/ic_arrow_mini"
+                            app:layout_constraintBottom_toBottomOf="@+id/bankbook_textView"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/bankbook_textView" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Account List -->
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/bankbook_frame"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:background="@drawable/layout_bottom_rounded"
+                        android:paddingHorizontal="8dp"
+                        android:paddingBottom="22dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/bankbook_button">
+
+                        <!-- My Account -->
+
+                        <RelativeLayout
+                            android:id="@+id/linear_my_account"
+                            android:layout_width="0dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/button_ripple_white_small"
+                            android:paddingHorizontal="17dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <!-- My Account Icon -->
+
+                            <RelativeLayout
+                                android:id="@+id/my_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/icon"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/ic_flick_circle" />
+
+                            </RelativeLayout>
+
+                            <!-- My Account Content -->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_toStartOf="@+id/btn_send"
+                                android:layout_toEndOf="@+id/my_icon"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="60dp"
+                                    android:layout_height="16dp"
+                                    android:layout_alignParentBottom="true"
+                                    app:srcCompat="@drawable/container_angular" />
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="20dp"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginTop="6dp"
+                                    app:srcCompat="@drawable/container_angular" />
+
+                            </LinearLayout>
+
+                            <!-- My Account Send Button -->
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btn_send"
+                                android:layout_width="53dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="0dp"
+                                android:background="@drawable/button_ripple_mini"
+                                android:backgroundTint="#F2F3F4"
+                                android:fontFamily="@font/pretendard_medium"
+                                android:outlineProvider="none"
+                                android:text="송금"
+                                android:textColor="#505866"
+                                android:textSize="13sp" />
+
+                        </RelativeLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
