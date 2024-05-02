@@ -72,8 +72,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(R.layout.f
             btnSend.setOnClickListener { findNavController().navigate(R.id.to_sendWhereFragment) }
             linearMyAccount.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_fragmentBankbookRecords) }
             bankbookButton.setOnClickListener { findNavController().navigate(R.id.to_accountDetailFragment) }
-            alarmButton.setOnClickListener {
-                Toast.makeText(context, "아직은 알림 기능이 없어요", Toast.LENGTH_SHORT).show()
+            btnSetting.setOnClickListener {
+                findNavController().navigate(R.id.to_settingFragment)
             }
         }
     }

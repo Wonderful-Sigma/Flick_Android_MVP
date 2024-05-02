@@ -140,6 +140,13 @@
         <action
             android:id="@+id/to_homeLoadingFragment"
             app:destination="@id/homeLoadingFragment" />
+        <action
+            android:id="@+id/to_settingFragment"
+            app:destination="@id/settingFragment"
+            app:enterAnim="@anim/animation_enter"
+            app:exitAnim="@anim/animation_exit"
+            app:popEnterAnim="@anim/animation_pop_enter"
+            app:popExitAnim="@anim/animation_pop_exit"/>
 
     </fragment>
 

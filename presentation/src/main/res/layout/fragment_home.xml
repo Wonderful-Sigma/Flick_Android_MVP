@@ -31,13 +31,13 @@
                 app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
             <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/alarm_button"
+                android:id="@+id/btn_setting"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/button_ripple_gray_oval"
-                android:src="@drawable/ic_alarm"
+                android:src="@drawable/ic_setting"
                 app:layout_constraintBottom_toBottomOf="@+id/toolbar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/toolbar" />

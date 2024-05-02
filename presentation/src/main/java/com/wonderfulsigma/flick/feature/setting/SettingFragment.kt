@@ -11,6 +11,7 @@ import com.wonderfulsigma.flick.base.BaseFragment
 import com.wonderfulsigma.flick.databinding.FragmentSettingBinding
 import com.wonderfulsigma.flick.feature.user.viewmodel.UserViewModel
 import com.wonderfulsigma.flick.utils.HiltApplication
+import com.wonderfulsigma.flick.utils.setStatusBarColorWhite
 
 
 class SettingFragment: BaseFragment<FragmentSettingBinding, SettingViewModel>(R.layout.fragment_setting) {
@@ -19,6 +20,8 @@ class SettingFragment: BaseFragment<FragmentSettingBinding, SettingViewModel>(R.
     private val userViewModel: UserViewModel by activityViewModels()
 
     override fun start() {
+        setStatusBarColorWhite(requireActivity(), requireContext())
+
         val i = Intent(Intent.ACTION_VIEW)
 
         val ruleUrl = "https://sites.google.com/dgsw.hs.kr/privacy-policy/%ED%99%88"
